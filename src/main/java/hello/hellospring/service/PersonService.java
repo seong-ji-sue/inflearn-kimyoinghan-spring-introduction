@@ -22,13 +22,22 @@ public class PersonService {
 
     /**
      * 회원가입
+     * 주석은 시간 재는거
      * @param person
      * @return
      */
     public Long join(Person person) {
-        validateDuplicatePerson(person);
-        personRepository.save(person);
-        return person.getId();
+//        long start = System.currentTimeMillis();
+//        try{
+            validateDuplicatePerson(person);
+            personRepository.save(person);
+            return person.getId();
+
+//        }finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join " + timeMs + "ms");
+//        }
     }
 
     /**
